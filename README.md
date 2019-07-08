@@ -40,3 +40,4 @@ optional arguments:
 
 ## Usage example
 ConcatMap.py -i <PathToFile/InputFileName> -r <ReferenceLength> 
+
