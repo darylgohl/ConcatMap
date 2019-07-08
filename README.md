@@ -3,9 +3,13 @@ This program takes in SAM files of sequencing reads mapped to a concatenated ref
 
 ## Prerequisites
 Python 2.7
+
 matplotlib
+
 scipy
+
 numpy
+
 pysam
 
 ## Usage
@@ -39,5 +43,5 @@ optional arguments:
                         tiff.
 
 ## Usage example
-ConcatMap.py -i <PathToFile/InputFileName> -r <ReferenceLength> 
+ConcatMap.py -i <PathToFile/InputFileName> -r <ReferenceLength> -m 10000 -f "png"
 
