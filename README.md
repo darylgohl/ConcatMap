@@ -9,7 +9,7 @@ You can install ConcatMap directly from the GitHub repository using pip. It's re
 pip install git+https://github.com/darylgohl/ConcatMap.git
 
 ## Usage
-ConcatMapper_v1.0.py [-h] [-q] [-r] [-o] [-n] [-m] [-l] [-w] [-c] [-s] [-x] [-f]
+ConcatMap [-h] [-q] [-r] [-o] [-n] [-m] [-l] [-w] [-c] [-s] [-x] [-f]
 
 Map and plot reads against a circular reference (v1.2) by Daryl Gohl This
 program takes in SAM files of sequencing reads mapped to a concatenated
@@ -20,31 +20,19 @@ circularized reference.
 
 optional arguments:
 options:
-
   -h, --help            show this help message and exit
-
   -q , --fastq_file     Input path for fastq sequencing reads file [required].
-  
   -r , --fasta_file     Input path for fasta reference file [required].
-  
   -o , --output_dir     Output directory for sam file and plot (default: same folder as input fastq file)
-  
   -n , --output_file    Output name for sam file and plot (default: same name as input fastq file)
-  
   -m , --min_length     Minimum mapped read length to plot (default: 100)
-  
   -l , --line_spacing   Radial spacing of each read on plot (default 0.2)
-  
   -w , --line_width     Line width of each read on plot (default 0.75)
-  
   -c , --circle_size    Size of central circle (default 0.45)
-  
   -s , --fig_size       Size of figure (default 10)
-  
   -x , --clip           Plot clipped portion of reads (default False)
-  
   -f , --figure_format	Format of saved figure, supported formats: eps, jpeg, jpg, pdf, pgf, png, ps, raw, rgba, svg, svgz, tif, tiff.
                         
 ## Usage example
-python ConcatMapper_v1.0.py -q <PathToFASTQFile/InputFileName> -r <PathToFASTAReferenceFile/ReferenceFileName> -m 10000 -f "png"
+ConcatMap -q <PathToFASTQFile/InputFileName> -r <PathToFASTAReferenceFile/ReferenceFileName> -m 10000 -f "png"
 
