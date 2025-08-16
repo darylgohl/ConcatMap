@@ -279,7 +279,7 @@ def main():
         clipped_deg_start.append(360-clipped_end_collapsed[i]*deg_per_base)
 
     #Plotting data
-    with plt.style.context("seaborn-white"):
+    with plt.style.context('ggplot'):
         fig = plt.figure(figsize=(Fig_size,Fig_size))
         #my_dpi = 300
         #fig = plt.figure(figsize=(2400/my_dpi, 2400/my_dpi), dpi=my_dpi)
