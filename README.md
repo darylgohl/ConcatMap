@@ -31,8 +31,8 @@ optional arguments:
   -n , --output_file    Output name for sam file and plot (default: same name as input fastq file)
 
   -m , --min_length     Minimum mapped read length to plot (default: 100)
-
-    -u , --unsorted     Plot from unsorted sam file (default: False - plot sorted sam file)
+  
+  -u , --unsorted     Plot from unsorted sam file (default: False - plot sorted sam file)
 
   -l , --line_spacing   Radial spacing of each read on plot (default 0.2)
 
