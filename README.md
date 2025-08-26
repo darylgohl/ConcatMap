@@ -9,7 +9,7 @@ You can install ConcatMap directly from the GitHub repository using pip. It's re
 pip install git+https://github.com/darylgohl/ConcatMap.git
 
 ## Usage
-ConcatMap [-h] [-q] [-r] [-o] [-n] [-m] [-l] [-w] [-c] [-s] [-x] [-f]
+ConcatMap [-h] [-q] [-r] [-o] [-n] [-m] [-u] [-l] [-w] [-c] [-s] [-x] [-f]
 
 Map and plot reads against a circular reference (v1.2) by Daryl Gohl This
 program takes in SAM files of sequencing reads mapped to a concatenated
@@ -31,6 +31,8 @@ optional arguments:
   -n , --output_file    Output name for sam file and plot (default: same name as input fastq file)
 
   -m , --min_length     Minimum mapped read length to plot (default: 100)
+
+    -u , --unsorted     Plot from unsorted sam file (default: False - plot sorted sam file)
 
   -l , --line_spacing   Radial spacing of each read on plot (default 0.2)
 
