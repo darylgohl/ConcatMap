@@ -49,31 +49,36 @@ def get_args(x):
                    default = 100,
                    metavar = '',
                    help="Minimum mapped read length to plot (default: 100)")
+    x.add_argument("-u", "--unsorted",
+                   type = str,
+                   default = False,
+                   metavar = '',
+                   help="Plot from unsorted sam file (default: False - plot sorted sam file)")                   
     x.add_argument("-l", "--line_spacing",
                    type = float,
                    default = 0.02,
                    metavar = '',
-                   help = "Radial spacing of each read on plot (default 0.2)")
+                   help = "Radial spacing of each read on plot (default: 0.2)")
     x.add_argument("-w", "--line_width",
                    type = float,
                    default = 0.75,
                    metavar = '',
-                   help = "Line width of each read on plot (default 0.75)")
+                   help = "Line width of each read on plot (default: 0.75)")
     x.add_argument("-c", "--circle_size",
                    type = float,
                    default = 0.45,
                    metavar = '',
-                   help = "Size of central circle (default 0.45)")
+                   help = "Size of central circle (default: 0.45)")
     x.add_argument("-s", "--fig_size",
                    type = float,
                    default = 10,
                    metavar = '',
-                   help = "Size of figure (default 10)")
+                   help = "Size of figure (default: 10)")
     x.add_argument("-x", "--clip",
                   type = str,
                   default = False,
                   metavar = '',
-                  help = "Plot clipped portion of reads (default False)")
+                  help = "Plot clipped portion of reads (default: False)")
     x.add_argument("-f", "--figure_format",
                    type = str,
                    default = "pdf",
@@ -86,9 +91,9 @@ def get_args(x):
 def str2bool(v):
     if isinstance(v, bool):
        return v
-    if v.lower() in ('yes', 'true', 't', 'y', '1'):
+    if v.lower() in ('True', 'yes', 'true', 't', 'y', '1'):
         return True
-    elif v.lower() in ('no', 'false', 'f', 'n', '0'):
+    elif v.lower() in ('False', 'no', 'false', 'f', 'n', '0'):
         return False
     else:
         raise argparse.ArgumentTypeError('Boolean value expected.')
@@ -114,7 +119,8 @@ def main():
     Fig_size = args['fig_size']
     start_coord = args['circle_size']
     Fig_format = args['figure_format']
-    Include_clipped = args['clip']
+    Include_clipped = str2bool(args['clip'])
+    Sorted_Unsorted = str2bool(args['unsorted'])
 
     #Set output directory
     if out_folder == '':
@@ -164,7 +170,10 @@ def main():
     #unsorted_samfile = pysam.AlignmentFile(filename, "r")
     out_name = out_file[:-4] + "_sorted.sam"
     pysam.samtools.sort("-o", out_name, filename, catch_stdout=False)
-    samfile = pysam.AlignmentFile(out_name, "r") #sorted sam file
+    if Sorted_Unsorted != False:
+    	samfile = pysam.AlignmentFile(filename, "r")
+    else:
+    	samfile = pysam.AlignmentFile(out_name, "r")
 
     #reads
     reference_start = []
