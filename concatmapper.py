@@ -134,7 +134,7 @@ def main():
     if out_file == '':
       out_file = os.path.basename(fastq_filename)[:-6] + ".sam"
     else:
-      out_file = out_file
+      out_file = out_file  + ".sam"
 
     #Read in reference and generate concatenated reference file
     refid = SeqIO.read(fasta_reference, "fasta").id
