@@ -1,4 +1,4 @@
-# ConcatMapper
+# ConcatMap
 This program takes in a fasta reference file and a fastq sequencing file and concatenates the reference sequence (two copies of the reference sequence repeated in tandem) and then uses minimap2 to map reads to the concatenated reference, generating a .sam file that is used for subsequent plotting.
 
 ## Prerequisites
