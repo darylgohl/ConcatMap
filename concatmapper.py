@@ -156,7 +156,7 @@ def main():
         SeqIO.write(record, output_handle, "fasta")
 
     #Map with minimap2 and generate sam file
-    execute = "minimap2 -a " + refid_new + " " + fastq_filename + " > " + out_file
+    execute = "minimap2 --sam-hit-only -a " + refid_new + " " + fastq_filename + " > " + out_file
     os.system(execute)
 
     filename = out_file
